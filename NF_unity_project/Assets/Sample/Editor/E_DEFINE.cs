@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace Sample
+﻿namespace Sample.Editor
 {
     public enum E_DEFINE
     {

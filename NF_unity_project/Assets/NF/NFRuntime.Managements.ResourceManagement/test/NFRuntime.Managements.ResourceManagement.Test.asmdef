@@ -1,0 +1,17 @@
+{
+    "name": "NFRuntime.Managements.ResourceManagement.Test",
+    "references": [
+        "GUID:cf9087bb2ab3cb046b3d84e0480ddc39"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}

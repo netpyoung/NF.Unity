@@ -1,0 +1,17 @@
+{
+    "name": "NFRuntime.Managements.OptionManagement.Test",
+    "references": [
+        "GUID:f01957182ccb2b84896dbf8371369ac2"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}

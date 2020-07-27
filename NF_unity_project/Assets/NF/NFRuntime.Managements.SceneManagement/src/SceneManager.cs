@@ -10,27 +10,25 @@ namespace NFRuntime.Managements.SceneManagement
         public ASceneGroup CurrentSceneGroup { get; private set; } = null;
         public AReporter Reporter { get; private set; } = null;
 
-        public async Task<T> LoadAsync<T>(params object[] args) where T : ASceneGroup
+        public Task<T> LoadAsync<T>(params object[] args) where T : ASceneGroup
         {
-            T t = Activator.CreateInstance(typeof(T), args) as T;
-            await LoadSceneGroupAsync(t);
-            return t;
+            return LoadSceneGroupAsync((T)Activator.CreateInstance(typeof(T), args));
         }
 
-        async Task<ASceneGroup> LoadSceneGroupAsync(ASceneGroup sceneGroup)
+        async Task<T> LoadSceneGroupAsync<T>(T sceneGroup) where T : ASceneGroup
         {
             if (this.CurrentSceneGroup != null)
             {
                 await this.CurrentSceneGroup.UnloadAsync();
             }
             this.CurrentSceneGroup = sceneGroup;
-            return await sceneGroup.LoadAsync(this.Reporter);
+            return (T)await sceneGroup.LoadAsync(this.Reporter);
         }
 
-        public async Task<T> PushAsync<T>(params object[] args) where T : ASceneGroup
+        public Task<T> PushAsync<T>(params object[] args) where T : ASceneGroup
         {
             Stack.Push(this.CurrentSceneGroup);
-            return await LoadAsync<T>(args);
+            return LoadAsync<T>(args);
         }
 
         public Task<ASceneGroup> PopAsync()
@@ -41,6 +39,11 @@ namespace NFRuntime.Managements.SceneManagement
         public void RegisterReporter<T>() where T : AReporter
         {
             this.Reporter = Activator.CreateInstance<T>();
+        }
+
+        public void RegisterReporter<T>(T reporter) where T : AReporter
+        {
+            this.Reporter = reporter;
         }
     }
 }
