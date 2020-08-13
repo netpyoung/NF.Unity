@@ -44,12 +44,24 @@ namespace NFEditor.Tools.PathManager
             root.Query<Button>("log").First().clickable.clicked += () =>
             {
 #if UNITY_EDITOR_WIN
-            string dir =
-                    $"{Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%")}\\AppData\\Local\\Unity\\Editor";
+                string dir =
+                        $"{Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%")}\\AppData\\Local\\Unity\\Editor";
 #else
                 string dir = $"{Environment.GetEnvironmentVariable("HOME")}/Library/Logs/Unity";
 #endif
-            Debug.Log(dir);
+                Debug.Log(dir);
+                EditorUtility.RevealInFinder(dir);
+            };
+
+            root.Query<Button>("nuget").First().clickable.clicked += () =>
+            {
+#if UNITY_EDITOR_WIN
+                string dir =
+                        $"{Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%")}\\.nuget\\packages";
+#else
+                string dir = $"{Environment.GetEnvironmentVariable("HOME")}/.nuget/packages";
+#endif
+                Debug.Log(dir);
                 EditorUtility.RevealInFinder(dir);
             };
         }

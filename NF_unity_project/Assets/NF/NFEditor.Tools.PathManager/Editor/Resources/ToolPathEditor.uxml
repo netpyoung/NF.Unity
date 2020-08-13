@@ -1,11 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<engine:UXML
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns="UnityEngine.UIElements"
-    xmlns:engine="UnityEngine.UIElements">
-  <Button name="dataPath" text="Application.dataPath" />
-  <Button name="persistentDataPath" text="Application.persistentDataPath" />
-  <Button name="streamingAssetsPath" text="Application.streamingAssetsPath" />
-  <Button name="temporaryCachePath" text="Application.temporaryCachePath" />
-  <Button name="log" text="log" />
-</engine:UXML>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:Button name="dataPath" text="Application.dataPath" />
+    <ui:Button name="persistentDataPath" text="Application.persistentDataPath" />
+    <ui:Button name="streamingAssetsPath" text="Application.streamingAssetsPath" />
+    <ui:Button name="temporaryCachePath" text="Application.temporaryCachePath" />
+    <ui:Button name="log" text="log" />
+    <ui:Button text=".nuget/packages" name="nuget" />
+</ui:UXML>
