@@ -9,12 +9,17 @@ namespace NFRuntime.Util.Components
         [System.Serializable]
         private struct FPSColor
         {
+#pragma warning disable 0649
             public Color color;
             public int minimumFPS;
+#pragma warning restore 0649
         }
 
+#pragma warning disable 0649
         [SerializeField]
         private FPSColor[] coloring;
+#pragma warning restore 0649
+
         private FPSCounter fpsCounter = new FPSCounter();
 
         public Text highestFPSLabel;
