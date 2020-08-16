@@ -7,6 +7,7 @@ namespace NFRuntime.Shape
     {
         public NativeArray<Vector3> Vertices;
         public NativeArray<Vector2> UVs;
+        public NativeArray<Color> Colors;
         public NativeArray<int> Indices;
     }
 }

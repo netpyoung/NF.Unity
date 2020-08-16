@@ -7,5 +7,6 @@ namespace NFRuntime.Shape
         public Vector3[] Vertices;
         public Vector2[] UVs;
         public int[] Indices;
+        public Color[] Colors;
     }
 }

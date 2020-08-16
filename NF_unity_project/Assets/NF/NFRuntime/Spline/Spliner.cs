@@ -8,6 +8,8 @@ namespace NFRuntime.Spline
     {
         List<SplineControlPoint> mSplineControlPoints { get; } = new List<SplineControlPoint>();
         List<SplineControlPoint> mCache { get; } = new List<SplineControlPoint>();
+        
+        public int GetLineCount() => mSplineControlPoints.Count;
 
         public void Init(int maxPlayingLength)
         {
