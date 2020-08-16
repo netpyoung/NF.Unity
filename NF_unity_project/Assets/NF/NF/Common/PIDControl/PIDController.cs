@@ -11,10 +11,10 @@ namespace NF.Common.PIDControl
     {
         float mDt = 0.01f;
         int mMaxHistory = 7;
-        float mKp;
-        float mKi;
-        float mKd;
-        float mKplant;
+        public float Kp { get; set; }
+        public float Ki { get; set; }
+        public float Kd { get; set; }
+        public float KPlant { get; set; }
         List<float> mErrors = new List<float>();
         List<float> mOutputs = new List<float>();
 
@@ -53,10 +53,10 @@ namespace NF.Common.PIDControl
 
         public void ResetConstants()
         {
-            mKi = 0;
-            mKd = 0;
-            mKp = 0;
-            mKplant = 1;
+            Ki = 0;
+            Kd = 0;
+            Kp = 0;
+            KPlant = 1;
         }
 
         float SingleStepPredictor(float x0, float y0, float x1, float y1, float dt)
@@ -89,7 +89,7 @@ namespace NF.Common.PIDControl
                 int errorSize = mErrors.Count;
 
                 // [P]roportional
-                float prop = mKp * mErrors[errorSize - 1];
+                float prop = Kp * mErrors[errorSize - 1];
 
                 // [I]ntegral - Use Extended Simpson's Rule
                 float integral = 0;
@@ -104,13 +104,13 @@ namespace NF.Common.PIDControl
                 integral += mErrors[0];
                 integral += mErrors[errorSize - 1];
                 integral /= (3 * mDt);
-                integral *= mKi;
+                integral *= Ki;
 
                 // [D]erivative
-                float deriv = mKd * (mErrors[errorSize - 1] - mErrors[errorSize - 2]) / mDt;
+                float deriv = Kd * (mErrors[errorSize - 1] - mErrors[errorSize - 2]) / mDt;
 
                 // Total P+I+D
-                float result = mKplant * (prop + integral + deriv);
+                float result = KPlant * (prop + integral + deriv);
 
                 mOutputs.Add(result);
             }

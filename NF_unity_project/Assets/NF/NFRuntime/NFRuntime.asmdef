@@ -1,6 +1,8 @@
 {
     "name": "NFRuntime",
-    "references": [],
+    "references": [
+        "GUID:1de9f52e1563689488de01e1538ef4f7"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": true,
