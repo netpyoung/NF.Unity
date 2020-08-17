@@ -203,16 +203,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Config:
-    TipTransform: {fileID: 2105558397}
-    BaseTransform: {fileID: 737294216}
+    TransformTip: {fileID: 2105558397}
+    TransformBase: {fileID: 737294216}
     Materials:
     - {fileID: 2100000, guid: ccb6c06c301aa0b46bf626d309f85306, type: 2}
-    StartColor: {r: 1, g: 1, b: 1, a: 1}
-    EndColor: {r: 1, g: 1, b: 1, a: 1}
-    IsUsingSpline: 1
+    ColorStart: {r: 1, g: 1, b: 1, a: 1}
+    ColorEnd: {r: 1, g: 1, b: 1, a: 1}
     MaxPlayingRecordLength: 60
-    SplineDetail: 1
-    ELinePerVertexCount: 2
+    SplineDetail: 2
+    ELinePerVertexCount: 3
 --- !u!1 &584950598
 GameObject:
   m_ObjectHideFlags: 0

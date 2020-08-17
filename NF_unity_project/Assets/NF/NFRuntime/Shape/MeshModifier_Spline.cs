@@ -321,9 +321,9 @@ namespace NFRuntime.Shape
             Assert.IsTrue(meshInfo.Colors.IsCreated);
 
             int line = spliner.GetLineCount();
-            Assert.AreEqual(meshInfo.Vertices.Length, line * 2);
-            Assert.AreEqual(meshInfo.UVs.Length, line * 2);
-            Assert.AreEqual(meshInfo.Colors.Length, line * 2);
+            Assert.IsTrue(meshInfo.Vertices.Length >= line * 2);
+            Assert.IsTrue(meshInfo.UVs.Length >= line * 2);
+            Assert.IsTrue(meshInfo.Colors.Length >= line * 2);
 
             float addPerc = 1f / line;
             float acc = 0;
