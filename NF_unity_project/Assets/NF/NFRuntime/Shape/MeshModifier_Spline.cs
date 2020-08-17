@@ -6,7 +6,7 @@ namespace NFRuntime.Shape
 {
     public partial class MeshModifier
     {
-        public void FillSplineVUCI2(Spliner spliner, Color colorStart, Color colorEnd, ref MeshInfo meshInfo)
+        public int FillSplineVUCI2(Spliner spliner, Color colorStart, Color colorEnd, ref MeshInfo meshInfo)
         {
             Assert.IsNotNull(meshInfo.Vertices);
             Assert.IsNotNull(meshInfo.UVs);
@@ -69,9 +69,10 @@ namespace NFRuntime.Shape
                 meshInfo.Indices[index + 4] = ci + 1;
                 meshInfo.Indices[index + 5] = ci + 0;
             }
+            return line;
         }
 
-        public void FillSplineVUCI3(Spliner spliner, Color colorStart, Color colorEnd, ref MeshInfo meshInfo)
+        public int FillSplineVUCI3(Spliner spliner, Color colorStart, Color colorEnd, ref MeshInfo meshInfo)
         {
             Assert.IsNotNull(meshInfo.Vertices);
             Assert.IsNotNull(meshInfo.UVs);
@@ -155,10 +156,11 @@ namespace NFRuntime.Shape
                 meshInfo.Indices[index + 10] = ci + 2;
                 meshInfo.Indices[index + 11] = ci + 1;
             }
+            return line;
         }
 
         // ==============
-        public void FillSplineVUCI2(Spliner spliner, Color colorStart, Color colorEnd, ref NativeMeshInfo meshInfo)
+        public int FillSplineVUCI2(Spliner spliner, Color colorStart, Color colorEnd, ref NativeMeshInfo meshInfo)
         {
             Assert.IsTrue(meshInfo.Vertices.IsCreated);
             Assert.IsTrue(meshInfo.UVs.IsCreated);
@@ -221,9 +223,10 @@ namespace NFRuntime.Shape
                 meshInfo.Indices[index + 4] = ci + 1;
                 meshInfo.Indices[index + 5] = ci + 0;
             }
+            return line;
         }
 
-        public void FillSplineVUCI3(Spliner spliner, Color colorStart, Color colorEnd, ref NativeMeshInfo meshInfo)
+        public int FillSplineVUCI3(Spliner spliner, Color colorStart, Color colorEnd, ref NativeMeshInfo meshInfo)
         {
             Assert.IsTrue(meshInfo.Vertices.IsCreated);
             Assert.IsTrue(meshInfo.UVs.IsCreated);
@@ -307,9 +310,11 @@ namespace NFRuntime.Shape
                 meshInfo.Indices[index + 10] = ci + 2;
                 meshInfo.Indices[index + 11] = ci + 1;
             }
+            return line;
         }
+
         // ==================================
-        public void FillSplineVUC2(Spliner spliner, Color colorStart, Color colorEnd, ref NativeMeshInfo meshInfo)
+        public int FillSplineVUC2(Spliner spliner, Color colorStart, Color colorEnd, ref NativeMeshInfo meshInfo)
         {
             Assert.IsTrue(meshInfo.Vertices.IsCreated);
             Assert.IsTrue(meshInfo.UVs.IsCreated);
@@ -344,18 +349,19 @@ namespace NFRuntime.Shape
 
                 acc += addPerc;
             }
+            return line;
         }
 
-        public void FillSplineVUC3(Spliner spliner, Color colorStart, Color colorEnd, ref NativeMeshInfo meshInfo)
+        public int FillSplineVUC3(Spliner spliner, Color colorStart, Color colorEnd, ref NativeMeshInfo meshInfo)
         {
             Assert.IsTrue(meshInfo.Vertices.IsCreated);
             Assert.IsTrue(meshInfo.UVs.IsCreated);
             Assert.IsTrue(meshInfo.Colors.IsCreated);
 
             int line = spliner.GetLineCount();
-            Assert.AreEqual(meshInfo.Vertices.Length, line * 3);
-            Assert.AreEqual(meshInfo.UVs.Length, line * 3);
-            Assert.AreEqual(meshInfo.Colors.Length, line * 3);
+            Assert.IsTrue(meshInfo.Vertices.Length >= line * 3);
+            Assert.IsTrue(meshInfo.UVs.Length >= line * 3);
+            Assert.IsTrue(meshInfo.Colors.Length >= line * 3);
 
             float addPerc = 1f / line;
             float acc = 0;
@@ -384,9 +390,10 @@ namespace NFRuntime.Shape
 
                 acc += addPerc;
             }
+            return line;
         }
 
-        public void FillSplineVU2(Spliner spliner, Color colorStart, Color colorEnd, ref NativeMeshInfo meshInfo)
+        public int FillSplineVU2(Spliner spliner, Color colorStart, Color colorEnd, ref NativeMeshInfo meshInfo)
         {
             Assert.IsTrue(meshInfo.Vertices.IsCreated);
             Assert.IsTrue(meshInfo.UVs.IsCreated);
@@ -417,9 +424,10 @@ namespace NFRuntime.Shape
 
                 acc += addPerc;
             }
+            return line;
         }
 
-        public void FillSplineVU3(Spliner spliner, Color colorStart, Color colorEnd, ref NativeMeshInfo meshInfo)
+        public int FillSplineVU3(Spliner spliner, Color colorStart, Color colorEnd, ref NativeMeshInfo meshInfo)
         {
             Assert.IsTrue(meshInfo.Vertices.IsCreated);
             Assert.IsTrue(meshInfo.UVs.IsCreated);
@@ -452,6 +460,7 @@ namespace NFRuntime.Shape
 
                 acc += addPerc;
             }
+            return line;
         }
 
         public void FillSplineI2(ref NativeMeshInfo meshInfo)

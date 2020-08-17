@@ -25,13 +25,13 @@ namespace NFRuntime.Spline
             }
         }
 
-        public void Refresh(NF.Collections.Generic.LinkedList<LineInfo> lineInfos, int desireRecordFrameCount)
+        public int Refresh(NF.Collections.Generic.LinkedList<LineInfo> lineInfos, int desireRecordFrameCount)
         {
             mSplineControlPoints.Clear();
 
             if (desireRecordFrameCount == 0)
             {
-                return;
+                return 0;
             }
 
             int snapshotIndex = 0;
@@ -63,6 +63,7 @@ namespace NFRuntime.Spline
                 curr.Distance = prev.Distance + (curr.Position - prev.Position).magnitude;
                 prev = curr;
             }
+            return mSplineControlPoints.Count;
         }
 
         public (Vector3 position, Vector3 normal) Interpolate(float t)
