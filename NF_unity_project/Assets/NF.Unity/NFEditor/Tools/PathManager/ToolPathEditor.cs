@@ -2,6 +2,7 @@ using System;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.AddressableAssets;
 
 namespace NFEditor.Tools.PathManager
 {
@@ -64,6 +65,29 @@ namespace NFEditor.Tools.PathManager
                 Debug.Log(dir);
                 EditorUtility.RevealInFinder(dir);
             };
+
+            root.Query<Button>("adddressable_LocalBuildPath").First().clickable.clicked += () =>
+            {
+                string dir = Addressables.BuildPath;
+                Debug.Log(dir);
+                EditorUtility.RevealInFinder(dir);
+            };
+
+            root.Query<Button>("adddressable_LocalLoadPath").First().clickable.clicked += () =>
+            {
+                string dir = Addressables.RuntimePath;
+                Debug.Log(dir);
+                EditorUtility.RevealInFinder(dir);
+            };
+
+            root.Query<Button>("adddressable_RemoteBuildPath").First().clickable.clicked += () =>
+            {
+                string dir = "ServerData";
+                Debug.Log(dir);
+                EditorUtility.RevealInFinder(dir);
+            };
+
+            root.Query<Label>("adddressable_RemoteLoadPath").First().text = "http://localhost";
         }
     }
 }

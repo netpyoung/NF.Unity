@@ -1,9 +1,9 @@
 {
     "name": "NFEditor",
     "references": [
-        "GUID:c535ac67373754041808e384b6873923"
+        "GUID:c535ac67373754041808e384b6873923",
+        "GUID:9e24947de15b9834991c9d8411ea37cf"
     ],
-    "optionalUnityReferences": [],
     "includePlatforms": [
         "Editor"
     ],
@@ -13,5 +13,6 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
-    "versionDefines": []
+    "versionDefines": [],
+    "noEngineReferences": false
 }

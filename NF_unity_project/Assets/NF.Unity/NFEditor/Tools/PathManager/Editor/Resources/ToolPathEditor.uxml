@@ -5,4 +5,10 @@
     <ui:Button name="temporaryCachePath" text="Application.temporaryCachePath" />
     <ui:Button name="log" text="log" />
     <ui:Button text=".nuget/packages" name="nuget" />
+    <ui:VisualElement>
+        <ui:Button text="adddressable_LocalBuildPath" name="adddressable_LocalBuildPath" style="-unity-text-align: middle-left;" />
+        <ui:Button text="adddressable_LocalLoadPath" name="adddressable_LocalLoadPath" style="-unity-text-align: middle-left;" />
+        <ui:Button text="adddressable_RemoteBuildPath" name="adddressable_RemoteBuildPath" style="-unity-text-align: middle-left;" />
+        <ui:Label text="Label" name="adddressable_RemoteLoadPath" />
+    </ui:VisualElement>
 </ui:UXML>
